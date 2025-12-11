@@ -1,0 +1,149 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+nav {
+  margin-top: 2rem;
+  height: 80px;
+  padding: 1rem 10rem;
+  border: 1px solid #dddddd;
+  position: relative;
+}
+
+nav .logo {
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  left: 130px;
+}
+
+nav img {
+  width: 2rem;
+  height: auto;
+  line-height: 60px;
+}
+nav ul {
+  display: inline-block;
+  list-style: none;
+}
+nav > ul > li {
+  display: inline-block;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  background-color: #ffffff;
+}
+
+nav > ul > li:hover .sub-menu-lev2 {
+  opacity: 1;
+  visibility: visible;
+}
+nav > ul > li > a {
+  text-decoration: none;
+  color: #333333;
+  font-weight: 600;
+  font-size: 18px;
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  padding: 1rem;
+}
+
+nav ul li > a > i {
+  font-size: 10px;
+  color: #555555;
+}
+
+nav > ul > li:hover > a {
+  color: #d62828;
+}
+
+.sub-menu-lev1 {
+  position: relative;
+}
+.sub-menu-lev2 {
+  position: absolute;
+  top: 100%;
+  width: 12rem;
+  left: 2rem;
+  border: 1px solid #dddddd;
+  z-index: 1;
+  background-color: #ffffff;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s;
+}
+.sub-menu-lev2 > li {
+  width: 100%;
+  position: relative;
+}
+.sub-menu-lev2 > li:hover {
+  background-color: #f5f5f5;
+}
+.sub-menu-lev2 > li > a:hover {
+  color: #d62828;
+}
+.sub-menu-lev2 > li > a {
+  text-decoration: none;
+  color: #333333;
+  font-weight: 400;
+  font-size: 18px;
+  display: inline-block;
+  padding-top: 0.4rem;
+  padding-bottom: 0.4rem;
+  transition: 0.4s;
+  position: relative;
+  width: 100%;
+  padding-left: 10px;
+}
+.sub-menu-lev2 > li > a > i {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 15px;
+}
+
+.sub-menu-lev2 > li:hover > .sub-menu-child {
+  opacity: 1;
+  visibility: visible;
+}
+
+.sub-menu-child {
+  position: absolute;
+  top: 0;
+  width: 12rem;
+  left: 100%;
+  border: 1px solid #dddddd;
+  z-index: 1;
+  background-color: #ffffff;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.4s;
+}
+
+.sub-menu-child > li {
+  width: 100%;
+}
+.sub-menu-child > li:hover {
+  background-color: #f5f5f5;
+}
+.sub-menu-child > li > a:hover {
+  color: #d62828;
+}
+.sub-menu-child > li > a {
+  text-decoration: none;
+  color: #333333;
+  font-weight: 400;
+  font-size: 18px;
+  display: inline-block;
+  padding-top: 0.4rem;
+  padding-bottom: 0.4rem;
+  transition: 0.4s;
+  position: relative;
+  width: 100%;
+  padding-left: 10px;
+}
