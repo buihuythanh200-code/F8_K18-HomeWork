@@ -9,6 +9,7 @@
   padding: 3.2rem;
   border-top-left-radius: 1rem;
   border-top-right-radius: 1rem;
+  background-size: cover;
 }
 .box-main {
   background-color: rgba(255, 255, 255, 0.4);
@@ -22,6 +23,16 @@ h2 {
   font-weight: 700;
 }
 
+strong {
+  color: #c084fc;
+  font-weight: 700;
+  font-size: 4rem;
+  text-align: center;
+  font-weight: 700;
+}
+.strong {
+  text-align: center;
+}
 h2 {
   color: #c084fc;
   font-weight: 700;
@@ -79,7 +90,7 @@ h1 {
   text-align: center;
   margin-top: 1rem;
 }
-.desc-inf span {
+.desc-inf b {
   font-weight: 700;
   color: #c084fc;
 }

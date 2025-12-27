@@ -1,0 +1,31 @@
+Buoi 20: 2025-12-27
+
+JS: javascript là 1 ngôn ngữ lập trình
+-ra doi voi muc dich lam FE
+hien tai JS co the làm FE, BE, CICD, AI
+
+
+JS: 
+-uu diem: trien khai nhanh, de code
+- nhuoc diem:
+ + khong tuong minh --> kho bao tri
+ + khi code sai --> khong biet ngay duoc
+ + ko ho tro lap trinh huong doi tuong
+
+
+TS (type script) ra doi de giai quyet hau het nhuoc diem
+  --> Co nhung net tuong dong với Java
+
+// khai bao bien (declare)
+let x,y,z
+
+//khoi tao bien (init)
+const a = 1
+let b = 2
+
+
+let a = 1 --> declare "a" variable and assign value 1
+
+a = 2 --> update value of "a"
+
+
