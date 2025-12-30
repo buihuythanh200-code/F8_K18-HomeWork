@@ -768,6 +768,9 @@ a {
   background-color: #ffffff;
   border-radius: 12px;
 }
+.card-faq:not(:first-child) {
+  margin-top: 30px;
+}
 .card-faq-heading {
   display: flex;
   justify-content: space-between;
