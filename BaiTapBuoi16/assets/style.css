@@ -15,6 +15,7 @@ a {
   margin-left: auto;
   margin-right: auto;
   margin-top: 20px;
+  padding: 10px;
 }
 
 .top-banner {
@@ -153,6 +154,7 @@ a {
   border: 1px solid #f1f1f3;
   border-radius: 11px;
   position: relative;
+  margin-top: 60px;
 }
 .top-hero-section svg {
   position: absolute;
@@ -443,7 +445,7 @@ a {
 }
 .item-course img {
   width: 100%;
-  max-height: 272px;
+  height: 272px;
   object-fit: cover;
   border-radius: 8px;
 }
@@ -1053,4 +1055,40 @@ footer > p {
   font-size: 16px;
   line-height: 150%;
   color: #656567;
+}
+.main {
+  padding: 0 30px;
+}
+/* * * Thiet bi Table & Mobile: @media screen and (max-width: 991px) * * */
+@media screen and (max-width: 991px) {
+  .item-course img {
+    height: 240px;
+  }
+
+  .sub-course-inf > div > span {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 1025px) {
+  .item-course img {
+    height: 240px;
+  }
+
+  .sub-course-inf > div > span {
+    font-size: 14px;
+  }
+}
+/*  * * Thiet bi rieng Table: @media screen and (min-width: 768px) and (max-width: 991px) * * */
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .item-course img {
+    height: 240px;
+  }
+  .sub-course-inf > div > span {
+    font-size: 14px;
+  }
+}
+
+/* * * Thiet bi Mobile: @media screen and (max-width: 767px) * * */
+@media screen and (max-width: 767px) {
 }
