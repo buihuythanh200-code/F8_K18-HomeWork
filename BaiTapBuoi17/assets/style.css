@@ -178,6 +178,7 @@ a {
 .top-hero-section__icon {
   padding: 14px;
   background-color: #fff4e5;
+  border-radius: 6px;
 }
 .top-hero-section__icon i {
   font-size: 22px;
@@ -204,7 +205,7 @@ a {
 
 .hero-section-btn {
   display: flex;
-  gap: 8px;
+  gap: 20px;
   justify-content: center;
   margin-top: 70px;
 }
@@ -251,6 +252,10 @@ a {
 }
 .list-app ul li {
   flex: 1;
+}
+.list-app ul li svg {
+  width: 100%;
+  height: auto;
 }
 .list-app ul li:not(:first-child) {
   border-left: 1px solid #f1f1f3;
@@ -370,6 +375,8 @@ a {
   width: calc((100% - 20px) / 3);
   min-height: 320px;
   position: relative;
+  background-color: #ffffff;
+  border-radius: 10px;
 }
 .container-benefit-section .number {
   text-align: right;
@@ -542,6 +549,8 @@ a {
   border-radius: 12px;
   position: relative;
   min-height: 300px;
+  background-color: #ffffff;
+  border-radius: 12px;
 }
 .item-ttm p {
   padding: 50px;
@@ -765,6 +774,9 @@ a {
   line-height: 150%;
   font-weight: 400;
 }
+.text-faq p:nth-child(2) {
+  margin-top: 10px;
+}
 .text-faq button {
   padding: 14px 20px;
   border: 1px solid #f1f1f3;
@@ -786,6 +798,9 @@ a {
   border: 1px solid #f1f1f3;
   background-color: #ffffff;
   border-radius: 12px;
+}
+.card-faq:not(:first-child) {
+  margin-top: 15px;
 }
 .card-faq-heading {
   display: flex;
@@ -1076,15 +1091,109 @@ footer > p {
 .main {
   padding: 0 30px;
 }
+.bars-icon {
+  font-size: 22px;
+  display: none;
+}
+
+#btn-bars {
+  display: none;
+}
+.bars-heading {
+  width: 88%;
+  margin-left: 19px;
+  margin-top: 16px;
+  margin-right: 8px;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #f1f1f3;
+}
+.bars-heading__img a {
+  display: flex;
+  width: 40px;
+  height: 40px;
+  justify-content: center;
+  align-items: center;
+  background-color: #ff9500;
+  border-radius: 6px;
+}
+.bars-heading label {
+  display: flex;
+  width: 40px;
+  height: 40px;
+  justify-content: center;
+  align-items: center;
+  font-size: 26px;
+  cursor: pointer;
+}
+/* menu bar */
+
+.item-bars a {
+  display: flex;
+  width: 100%;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 150%;
+  color: #262626;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+.item-bars a:hover {
+  background-color: #f2f2f7;
+}
+.item-bars a:first-child {
+  margin-top: 25px;
+  background-color: #f2f2f7;
+}
+.item-bars a:not(:first-child) {
+  margin-top: 20px;
+}
+.nav__btn input {
+  display: none;
+}
+.menu-bars {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 85%;
+  height: 100vh;
+  background-color: #ffffff;
+  z-index: 3;
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
+
+  transform: translateX(100%);
+  transition: all 0.3s ease;
+}
+.overlay__label {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: -2;
+  opacity: 0;
+  visibility: hidden;
+  cursor: pointer;
+}
+#btn-bars:checked ~ .overlay__label {
+  z-index: 2;
+  opacity: 1;
+  visibility: visible;
+}
+#btn-bars:checked ~ .menu-bars {
+  display: block;
+  transform: translateX(0);
+}
+
 /* * * Thiet bi Table & Mobile: @media screen and (max-width: 991px) * * */
 @media screen and (max-width: 991px) {
-  .item-course img {
-    height: 240px;
-  }
-
-  .sub-course-inf > div > span {
-    font-size: 14px;
-  }
 }
 
 @media screen and (max-width: 1025px) {
@@ -1092,34 +1201,21 @@ footer > p {
     height: 240px;
   }
   .text-benefit p:last-child {
-    font-size: 14px;
     text-align: justify;
   }
 
-  .sub-course-inf > div > span {
-    font-size: 14px;
-  }
   .text-benefit p strong {
-    font-size: 38px;
+    font-size: 48px;
   }
-  .container-benefit-section p b {
-    font-size: 18px;
-  }
-  .text-item-course p:first-child strong {
-    font-size: 20px;
-  }
-  .sub-course-inf > span {
-    font-size: 16px;
-  }
-  .btn-course button {
-    font-size: 14px;
-  }
+
   .container-benefit-section .item-benefit {
     min-height: 340px;
   }
-}
-/*  * * Thiet bi rieng Table: @media screen and (min-width: 768px) and (max-width: 991px) * * */
-@media screen and (min-width: 768px) and (max-width: 991px) {
+  .box-features {
+    padding: 25px 20px;
+  }
+
+  /* tesst */
   .item-course img {
     height: 240px;
   }
@@ -1130,33 +1226,29 @@ footer > p {
     font-size: 14px;
   }
   .nav ul li a {
-    font-size: 14px;
+    font-size: 16px;
+    padding: 16px 18px;
   }
   .nav__btn-item {
-    font-size: 14px;
+    font-size: 16px;
   }
   .top-hero-section h1 {
-    font-size: 36px;
+    font-size: 48px;
   }
   .text-hero-section p:first-child {
-    font-size: 28px;
+    font-size: 30px;
   }
   .text-hero-section p:last-child {
     font-size: 16px;
   }
   .hero-section-btn-item {
-    font-size: 14px;
-  }
-  .sub-course-inf > div > span {
-    font-size: 12px;
-    padding: 10px 5px;
-  }
-  .sub-course-inf > span {
-    font-size: 14px;
+    font-size: 18px;
   }
   .item-course {
-    min-height: 660px;
-    padding: 40px;
+    min-height: 630px;
+    padding: 22px;
+    gap: 10px;
+    width: calc((100% - 10px) / 2);
   }
   .btn-course {
     padding-left: 40px;
@@ -1165,36 +1257,21 @@ footer > p {
   .list-course {
     gap: 10px;
   }
-  .item-course {
-    width: calc((100% - 10px) / 2);
+  .text-faq p strong {
+    font-size: 33px;
   }
+
   .container-benefit-section .list-benefit {
     gap: 5px;
   }
   .container-benefit-section .item-benefit {
     width: calc((100% - 10px) / 3);
   }
-  .list-ttm {
-    gap: 10px;
-  }
+
   .item-ttm {
-    width: calc((100% - 10px) / 2);
     min-height: 310px;
   }
-  .item-ttm p {
-    padding: 40px;
-  }
-  .ttm-inf img {
-    width: 50px;
-    height: 50px;
-  }
-  .ttm-user span b {
-    font-size: 16px;
-  }
-  .ttm-inf button {
-    padding: 10px 12px;
-    font-size: 14px;
-  }
+
   .ttm-inf {
     padding: 24px 40px;
   }
@@ -1213,26 +1290,414 @@ footer > p {
     gap: 14px;
   }
   .box-features {
-    padding: 20px 10px;
+    padding: 20px 6px;
   }
   .list-features {
     padding-right: 5px;
     padding-left: 5px;
   }
+
+  .item-features {
+    gap: 4px;
+  }
+  .item-features-icon {
+    font-size: 8px;
+  }
+
+  .container-features button {
+    position: absolute;
+    bottom: 0px;
+  }
+  .faq-section {
+    padding: 60px 30px;
+    gap: 20px;
+  }
+
+  footer {
+    padding: 60px 30px 20px 30px;
+  }
+  .box-footer {
+    gap: 100px;
+  }
+  .box-item-icon {
+    padding: 8px;
+    width: 40px;
+    height: 40px;
+  }
+  .container-features {
+    position: relative;
+    min-height: 606px;
+  }
+}
+/*  * * Thiet bi rieng Table: @media screen and (min-width: 768px) and (max-width: 991px) * * */
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .item-course img {
+    height: 240px;
+  }
+  .list-app ul li a {
+    padding: 10px 20px;
+  }
+  .sub-course-inf > div > span {
+    font-size: 14px;
+  }
+  .nav ul li a {
+    font-size: 14px;
+    padding: 14px 16px;
+  }
+  .nav__btn-item {
+    font-size: 14px;
+  }
+  .top-hero-section h1 {
+    font-size: 36px;
+  }
+  .text-hero-section p:first-child {
+    font-size: 28px;
+  }
+  .hero-section-btn-item {
+    font-size: 14px;
+  }
+  .text-benefit p strong {
+    font-size: 38px;
+  }
+  .text-benefit p:last-child {
+    font-size: 14px;
+    text-align: justify;
+  }
+  .container-benefit-section p b {
+    font-size: 18px;
+  }
+  .sub-course-inf > div > span {
+    font-size: 12px;
+    padding: 10px 5px;
+  }
+  .text-item-course p:first-child strong {
+    font-size: 20px;
+  }
+  .btn-course button {
+    font-size: 14px;
+  }
+  .sub-course-inf > span {
+    font-size: 16px;
+  }
+  .item-ttm p {
+    padding: 40px;
+  }
+  .ttm-inf img {
+    width: 50px;
+    height: 50px;
+  }
+  .ttm-user span b {
+    font-size: 16px;
+  }
+  .ttm-inf button {
+    padding: 10px 12px;
+    font-size: 14px;
+  }
   .box-features p:first-child {
     font-size: 18px;
   }
-  .item-features {
-    gap: 8px;
-  }
-  .item-features-icon {
-    font-size: 12px;
-  }
   .item-features-text {
     font-size: 12px;
+    padding: 3px;
+  }
+  .container-features button {
+    font-size: 14px;
+    padding: 18px 24px;
+  }
+  .text-faq p strong {
+    font-size: 22px;
+  }
+  .text-faq button {
+    font-size: 14px;
+  }
+  .card-faq {
+    padding: 22px;
+  }
+  .card-faq-heading p {
+    font-size: 15px;
+  }
+  .card-faq-heading span {
+    width: 40px;
+    height: 40px;
+    font-size: 12px;
+  }
+
+  .card-faq .card-faq-active > p {
+    font-size: 16px;
+  }
+  .sub-card-faq {
+    padding: 16px 24px;
+  }
+  .sub-card-faq p {
+    font-size: 16px;
+  }
+  .sub-card-faq span {
+    padding: 12px;
+    font-size: 12px;
+  }
+  footer {
+    padding: 60px 30px 20px 30px;
+  }
+  .box-footer {
+    gap: 30px;
+  }
+  .box-item p strong {
+    font-size: 18px;
+  }
+  .box-item-icon {
+    padding: 8px;
+    width: 40px;
+    height: 40px;
+  }
+  .box-item .box-item-list p {
+    font-size: 13px;
+  }
+  .container-features {
+    position: relative;
+    min-height: 606px;
+  }
+  footer > p {
+    font-size: 14px;
+  }
+  .list-ttm {
+    gap: 10px;
+  }
+  .item-ttm {
+    width: calc((100% - 10px) / 2);
+    min-height: 310px;
   }
 }
 
 /* * * Thiet bi Mobile: @media screen and (max-width: 767px) * * */
 @media screen and (max-width: 767px) {
+  .item-course img {
+    height: 240px;
+  }
+  .list-app ul li a {
+    padding: 15px 30px;
+  }
+  .list-app ul {
+    padding: 10px;
+  }
+  .sub-course-inf > div > span {
+    font-size: 14px;
+  }
+  .nav ul li a {
+    font-size: 14px;
+    padding: 14px 16px;
+  }
+  .nav__btn-item {
+    font-size: 14px;
+  }
+  .top-hero-section h1 {
+    font-size: 16px;
+  }
+  .text-hero-section p:first-child {
+    font-size: 24px;
+  }
+  .text-hero-section p:last-child {
+    margin-top: 10px;
+    font-size: 17px;
+  }
+  .hero-section-btn-item {
+    font-size: 14px;
+  }
+  .text-benefit p strong {
+    font-size: 38px;
+  }
+  .text-benefit p:last-child {
+    font-size: 14px;
+    text-align: justify;
+  }
+  .container-benefit-section p b {
+    font-size: 18px;
+  }
+  .sub-course-inf > div > span {
+    font-size: 12px;
+    padding: 10px 5px;
+  }
+  .text-item-course p:first-child strong {
+    font-size: 20px;
+  }
+  .btn-course button {
+    font-size: 14px;
+  }
+  .sub-course-inf > span {
+    font-size: 16px;
+  }
+  .item-ttm p {
+    padding: 40px;
+  }
+  .ttm-inf img {
+    width: 50px;
+    height: 50px;
+  }
+  .ttm-user span b {
+    font-size: 16px;
+  }
+  .ttm-inf button {
+    padding: 10px 12px;
+    font-size: 14px;
+  }
+  .box-features p:first-child {
+    font-size: 18px;
+  }
+  .item-features-text {
+    font-size: 12px;
+    padding: 3px;
+  }
+  .container-features button {
+    font-size: 14px;
+    padding: 18px 24px;
+  }
+  .text-faq p strong {
+    font-size: 22px;
+  }
+  .text-faq button {
+    font-size: 14px;
+  }
+  .card-faq {
+    padding: 22px;
+  }
+  .card-faq-heading p {
+    font-size: 15px;
+  }
+  .card-faq-heading span {
+    width: 40px;
+    height: 40px;
+    font-size: 12px;
+  }
+
+  .card-faq .card-faq-active > p {
+    font-size: 16px;
+  }
+  .sub-card-faq {
+    padding: 16px 24px;
+  }
+  .sub-card-faq p {
+    font-size: 16px;
+  }
+  .sub-card-faq span {
+    padding: 12px;
+    font-size: 12px;
+  }
+  footer {
+    padding: 60px 30px 20px 30px;
+  }
+  .box-footer {
+    gap: 100px;
+  }
+  .box-item p strong {
+    font-size: 18px;
+  }
+  .box-item-icon {
+    padding: 8px;
+    width: 40px;
+    height: 40px;
+  }
+  .box-item .box-item-list p {
+    font-size: 13px;
+  }
+  .container-features {
+    position: relative;
+    min-height: 606px;
+  }
+  footer > p {
+    font-size: 14px;
+  }
+  .list-ttm {
+    gap: 10px;
+  }
+  .item-ttm {
+    width: 100%;
+    min-height: 310px;
+  }
+  .bars-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+  .nav {
+    display: none;
+  }
+  .top-hero-section__icon {
+    padding: 12px;
+  }
+  .list-app li:nth-child(4) {
+    display: none;
+  }
+  .list-app li:nth-child(5) {
+    display: none;
+  }
+  .list-app li:nth-child(6) {
+    display: none;
+  }
+  .list-app li:nth-child(7) {
+    display: none;
+  }
+  .top-benefit-section {
+    flex-wrap: wrap;
+  }
+  .btn-view {
+    min-height: 100px;
+  }
+  .btn-view button {
+    left: 0;
+    right: auto;
+  }
+  .container-benefit-section .item-benefit {
+    width: 100%;
+    min-height: 293px;
+  }
+  .container-benefit-section .list-benefit {
+    gap: 30px;
+  }
+  .list-course {
+    gap: 40px;
+  }
+  .item-course {
+    width: 100%;
+  }
+  .list-ttm {
+    gap: 30px;
+  }
+  .btn-pricing {
+    min-height: 100px;
+  }
+  .btn-pricing div {
+    left: 0;
+    right: auto;
+    bottom: 0;
+  }
+  .item-pricing {
+    width: 100%;
+  }
+  .container-pricing {
+    flex-wrap: wrap;
+    gap: 40px;
+  }
+  .faq-section {
+    flex-wrap: wrap;
+  }
+  .text-faq {
+    width: 100%;
+    flex: none;
+  }
+  .card-faq-heading {
+    gap: 5px;
+  }
+  .box-footer {
+    flex-wrap: wrap;
+  }
+  .box-inf {
+    width: 100%;
+    flex: auto;
+  }
+  .box-item {
+    flex: auto;
+  }
+  .box-service {
+    flex-wrap: wrap;
+  }
 }
