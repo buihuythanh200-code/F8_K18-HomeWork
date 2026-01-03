@@ -31,7 +31,7 @@ let isVip;
 age = 9;
 mathScore = 10;
 isVip = false;
-let canEnter = (age >= 10 && mathScore > 7 && isVip == false) || isVip == true;
+let canEnter = (age >= 10 && mathScore > 7) || isVip;
 console.log(canEnter);
 //Logic Question: Is !(age < 10) mathematically the same as age >= 10?
 //Answer: Is !(age < 10) mathematically the same as age >=10. The ! operator reverses the result of the condition (age < 10). Therefore, when age is not less than 10, it must be greater than or equal to 10.
