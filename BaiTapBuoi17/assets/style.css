@@ -1689,6 +1689,7 @@ footer > p {
   }
   .box-footer {
     flex-wrap: wrap;
+    gap: 60px;
   }
   .box-inf {
     width: 100%;
