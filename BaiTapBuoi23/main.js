@@ -1,5 +1,8 @@
 // Lesson 1:
 function getTriangleType(a, b, c) {
+  if (a <= 0 || b <= 0 || c <= 0) {
+    return "This isn't a triangle";
+  }
   let isEquilateralTriangle = a === b && b === c;
   let isIsoscelesTriangle = a === b || a === c || b === c;
   let isRightTriangle =
