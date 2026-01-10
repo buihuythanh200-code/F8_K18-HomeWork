@@ -1,7 +1,13 @@
 // Lesson 1:
 function getTriangleType(a, b, c) {
+  let isNumA = typeof a === "number" && !isNaN(a);
+  let isNumB = typeof b === "number" && !isNaN(b);
+  let isNumC = typeof c === "number" && !isNaN(c);
+  if (!isNumA || !isNumB || !isNumC) {
+    return "Invalid Input";
+  }
   if (a <= 0 || b <= 0 || c <= 0) {
-    return "This isn't a triangle";
+    return "Not a triangle";
   }
   let isEquilateralTriangle = a === b && b === c;
   let isIsoscelesTriangle = a === b || a === c || b === c;
@@ -11,21 +17,22 @@ function getTriangleType(a, b, c) {
     c ** 2 === a ** 2 + b ** 2;
   if (a + b > c && a + c > b && b + c > a) {
     if (isEquilateralTriangle) {
-      return "This is an equilateral triangle";
+      return "Equilateral Triangle";
     } else if (isIsoscelesTriangle && isRightTriangle) {
-      return "This is an isosceles right triangle";
+      return "Isosceles Right Triangle";
     } else if (isIsoscelesTriangle) {
-      return "This is an isosceles triangle";
+      return "Isosceles Triangle";
     } else if (isRightTriangle) {
-      return "This is a right triangle";
+      return "Right Triangle";
     } else {
-      return "This is a scalene triangle";
+      return "Scalene Triangle";
     }
   } else {
-    return "This isn't a triangle";
+    return "Not a triangle";
   }
 }
 
+console.log(getTriangleType("4", 5, 6));
 console.log(getTriangleType(3, 4, 5));
 console.log(getTriangleType(6, 3, 5));
 console.log(getTriangleType(2, 3, 5));
