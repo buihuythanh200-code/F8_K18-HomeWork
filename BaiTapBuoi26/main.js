@@ -9,93 +9,145 @@ const products = [
 const orders = [];
 let idOrder = 0;
 function createOrder(productId, orderQuantity) {
-  if (!productId || !orderQuantity) {
+  if (!Number.isInteger(productId) || productId <= 0) {
     return "Invalid Input";
   }
-  const order = {};
+  if (!Number.isInteger(orderQuantity) || orderQuantity <= 0) {
+    return "Invalid Input";
+  }
 
-  let isExist = false;
+  let product = null;
 
   for (let i = 0; i < products.length; i++) {
     if (products[i].id === productId) {
-      isExist = true;
-      if (products[i].remaining >= orderQuantity) {
-        products[i].remaining -= orderQuantity;
-      } else {
-        return "Not enough stock";
-      }
+      product = products[i];
       break;
     }
   }
 
-  if (!isExist) {
+  if (!product) {
     return "Product not found";
   }
 
-  idOrder++;
-  if (!order.id) {
-    order.id = idOrder;
-    order.productId = productId;
-    order.quantity = orderQuantity;
+  if (product.remaining < orderQuantity) {
+    return "Out of stock";
   }
+
+  product.remaining -= orderQuantity;
+
+  idOrder++;
+
+  const order = {
+    id: idOrder,
+    productId: productId,
+    quantity: orderQuantity,
+  };
+
   orders.push(order);
 }
 
 function updateOrder(orderId, quantity) {
-  if (quantity < 0) {
+  if (!Number.isInteger(orderId) || orderId <= 0) {
+    return "Invalid Input";
+  }
+  if (!Number.isInteger(quantity) || quantity <= 0) {
     return "Invalid Input";
   }
 
+  let order = null;
+
   for (let i = 0; i < orders.length; i++) {
     if (orders[i].id === orderId) {
-      for (let j = 0; j < products.length; j++) {
-        if (orders[i].productId === products[j].id) {
-          let oldRemaining = products[j].remaining;
-          let newRemaining;
-          let orderQuantityChange = quantity - orders[i].quantity;
-          if (orderQuantityChange > 0) {
-            if (oldRemaining < orderQuantityChange) {
-              return "Out of stock";
-            } else {
-              newRemaining = oldRemaining - orderQuantityChange;
-            }
-          } else {
-            newRemaining = oldRemaining - orderQuantityChange;
-          }
-          products[j].remaining = newRemaining;
-          orders[i].quantity = quantity;
-          let delta = newRemaining - oldRemaining;
-          return (
-            "Order updated successfully " + "-" + ` Remaining change ${delta}`
-          );
-        }
-      }
+      order = orders[i];
+      break;
     }
   }
-  return "Not found";
+
+  if (!order) {
+    return "Order not found";
+  }
+
+  // Find Product compatible with the order
+
+  let product = null;
+
+  for (let j = 0; j < products.length; j++) {
+    if (order.productId === products[j].id) {
+      product = products[j];
+      break;
+    }
+  }
+
+  if (!product) {
+    return "Not found";
+  }
+
+  // Calculate the quantity difference
+
+  const oldQuantity = order.quantity;
+  const deltaQuantity = quantity - oldQuantity;
+
+  if (deltaQuantity > 0) {
+    if (product.remaining < deltaQuantity) {
+      return "Out of Stock";
+    }
+  }
+
+  let oldRemaining = product.remaining;
+
+  product.remaining -= deltaQuantity;
+
+  let deltaRemaining = product.remaining - oldRemaining;
+
+  order.quantity = quantity;
+
+  return "Order Completed Update";
 }
 
 function deleteOrder(orderId) {
+  if (!Number.isInteger(orderId) || orderId <= 0) {
+    return "Invalid Input";
+  }
+
+  let orderIndex = -1;
+  let order = null;
+
   for (let i = 0; i < orders.length; i++) {
-    if (orders[i].id === orderId) {
-      for (let j = 0; j < products.length; j++) {
-        if (products[j].id === orders[i].productId) {
-          products[j].remaining += orders[i].quantity;
-          break;
-        }
-      }
-      orders.splice(i, 1);
-      return "Order Completed Delete";
+    if (orderId === orders[i].id) {
+      order = orders[i];
+      orderIndex = i;
+      break;
     }
   }
 
-  return "Not Found";
+  if (!order) {
+    return "Not found";
+  }
+
+  let product = null;
+
+  for (let j = 0; j < products.length; j++) {
+    if (order.productId === products[j].id) {
+      product = products[j];
+      break;
+    }
+  }
+
+  if (!product) {
+    return "Not found";
+  }
+
+  product.remaining += order.quantity;
+
+  orders.splice(orderIndex, 1);
+
+  return "Order Completed Delete";
 }
 
 createOrder(1, 15);
 console.log(orders);
 console.log(products);
-console.log(updateOrder(1, 20));
+console.log(updateOrder(1, 5));
 console.log(orders);
 console.log(products);
 console.log(deleteOrder(1));
