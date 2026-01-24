@@ -26,7 +26,7 @@ function createOrder(productId, orderQuantity) {
   }
 
   if (!product) {
-    return "Product not found";
+    return "Not found";
   }
 
   if (product.remaining < orderQuantity) {
@@ -64,7 +64,7 @@ function updateOrder(orderId, quantity) {
   }
 
   if (!order) {
-    return "Order not found";
+    return "Not found";
   }
 
   // Find Product compatible with the order
