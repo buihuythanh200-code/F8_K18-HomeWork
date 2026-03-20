@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <style>
+      .overlay-add {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+
+        background: rgba(0, 0, 0, 0.4); /* nền xám mờ */
+        z-index: 4;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .modal-form-add {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+      }
+      .overlay-fix {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+
+        background: rgba(0, 0, 0, 0.4); /* nền xám mờ */
+        z-index: 4;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .modal-form-fix {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+      }
+
+      .hidden {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <button onclick="showFormAdd()">Thêm mới</button>
+      <ul class="list-post"></ul>
+      <!-- form add -->
+      <div class="overlay-add hidden">
+        <form class="modal-form-add" onclick="event.stopPropagation()">
+          <h3>Thêm Post</h3>
+          <input
+            type="text"
+            placeholder="Nhập tiêu đề..."
+            id="title-form-add"
+          />
+          <button>Add</button>
+        </form>
+      </div>
+      <!-- form fix -->
+      <div class="overlay-fix hidden">
+        <form class="modal-form-fix" onclick="event.stopPropagation()">
+          <h3>Thêm Post</h3>
+          <input
+            type="text"
+            placeholder="Nhập tiêu đề..."
+            id="title-form-fix"
+          />
+          <button>Cập nhật</button>
+        </form>
+      </div>
+    </main>
+  </body>
+  <script src="./post.js"></script>
+</html>
